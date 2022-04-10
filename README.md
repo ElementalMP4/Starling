@@ -23,3 +23,11 @@ Assuming everything works, you can now load `Starling.img` into Qemu.
 I have not and probably will not test this on anything other than a virtual machine. I recommend using Qemu.
 
 To run Starling, use the following command `qemu-system-x86_64 -fda Starling.img` in the root of the project folder. 
+
+## Creating a custom program
+
+The entry point for all programs is `prog/main.h` inside the `run_program` function.
+
+The rest is a mystery. Using a combination of coffee and 0 documentation ([and the original source code](https://github.com/vladcc/Tetris-OS)) however, it is all figureoutable.
+
+All C files should be housed inside the `prog` directory, unless you modify the `os.make` file to compile and link your program files.
