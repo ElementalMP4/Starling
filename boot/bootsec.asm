@@ -1,4 +1,4 @@
-; boot sector for Tetris OS
+; boot sector for OS
 
 [bits 16]		; force 16 bit code for real mode
 [org 0x7c00]		; set base address
