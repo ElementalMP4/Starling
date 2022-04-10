@@ -2,10 +2,10 @@
 ASM_SOURCES = $(wildcard boot/pre32_functions/*.asm boot/gdt/*.asm boot/32pm_functions/*.asm)
 
 # generate list of c sources
-C_SOURCES = $(wildcard kernel/*.c drivers/*.c games/*.c)
+C_SOURCES = $(wildcard kernel/*.c drivers/*.c prog/*.c)
 
 # generate list of headers
-HEADERS = $(wildcard kernel/*.h drivers/*.h games/*.h)
+HEADERS = $(wildcard kernel/*.h drivers/*.h prog/*.h)
 
 # convert .c to .o
 OBJ = ${C_SOURCES:.c=.o}
