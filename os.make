@@ -16,6 +16,7 @@ OBJ = ${C_SOURCES:.c=.o}
 
 # making the disk image
 images/os.img: boot/bootsec.bin kernel/kernel.bin
+	mkdir images
 	cat $^ > images/os.img
 	dd if=images/os.img of=Starling.img bs=512 count=2880
 
