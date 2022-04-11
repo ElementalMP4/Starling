@@ -4,12 +4,18 @@
 // includes
 #include "util.h"
 #include "stdbool.h"
+#include "keyboard_map.h"
 #include "../drivers/monitor_mode_txt.h"
 #include "../drivers/pit.h"
 
 // translation table for number printing
 const char TBL[] = "0123456789ABCDEF";
 static unsigned int next = 1;	// used for PRN generation
+
+#define ENTER_KEY 28
+
+//1MB keyboard buffer
+char* key_buffer[1024*1024];
 
 // code
 void mem_cpy(char * src, char * dest, int num_of_bytes)
@@ -75,7 +81,7 @@ void base_convert(int num, int base)
 	print_c(TBL[num % base]);
 }
 
-void print(char * str) 
+void print(char* str) 
 {
 	/* wrapper for printing a string */
 	
@@ -134,4 +140,40 @@ void halt(void)
 {
 	/* makes the processor halt */
 	__asm__("hlt");
+}
+
+void append(char* s, char c) {
+        int len = strlen(s);
+        s[len] = c;
+        s[len+1] = '\0';
+}
+
+int sc = 0;
+char* input_text[1024*1024];
+
+char* str_end = "\0";
+
+char* read(void) {
+	set_input_function(get_key);
+	key_buffer[0] = str_end;
+	input_text[0] = str_end;
+	while (sc != ENTER_KEY) {
+		//Hold until enter key is pressed
+	}
+	sc = 0;
+
+	int input_length = strlen(key_buffer);
+
+	for (int i = 0; i < input_length; i++) {
+		append(input_text, (char)key_buffer[i]);
+	}
+
+	return input_text;
+}
+
+void get_key(int scancode) {
+	sc = scancode;
+	char* key = get_key_from_code(sc);
+	append(key_buffer, sc);
+	print(key);
 }
