@@ -1,2 +1,2 @@
 void do_the_printing(void);
-void get_key(int scancode);
+void print_keys(int scancode);
