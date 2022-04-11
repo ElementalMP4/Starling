@@ -26,4 +26,8 @@ int handle_scrolling(int cursor_offset);
 char get_char_at(int row, int col);
 void set_attribute_byte(char attrib);
 char get_attribute_byte(void);
+void update_attribute_byte(void);
 void hide_cursor(void);
+
+void set_foreground_colour(int colour);
+void set_background_colour(int colour);

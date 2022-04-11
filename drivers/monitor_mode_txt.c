@@ -8,6 +8,9 @@
 // globals
 char attribute_byte = GRAY_ON_BLACK;
 
+int fg_colour = 7;
+int bg_colour = 0;
+
 // code
 void print_char(char character, int col, int row)
 {
@@ -168,4 +171,18 @@ void hide_cursor(void)
 {
 	/* guess what this does */
 	port_word_out(REG_SCR_CTRL, HIDE_CURSOR);
+}
+
+void set_foreground_colour(int colour) {
+	fg_colour = colour;
+	update_attribute_byte();
+}
+
+void set_background_colour(int colour) {
+	bg_colour = colour;
+	update_attribute_byte();
+}
+
+void update_attribute_byte() {
+	set_attribute_byte(fg_colour | bg_colour << 4);
 }
