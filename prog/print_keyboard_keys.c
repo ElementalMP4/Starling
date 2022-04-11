@@ -7,11 +7,11 @@
 
 void do_the_printing() {
 	print("What is your name? ");
-	char* name = read();
+	char *name = read();
 	print("\nHello, ");
 	print(name);
 	print("\nWhat is your favourite thing? ");
-	char* thing = read();
+	char *thing = read();
 	print("\nI like ");
 	print(thing);
 	print(" too!");

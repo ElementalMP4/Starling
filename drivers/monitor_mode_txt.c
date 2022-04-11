@@ -12,7 +12,7 @@ char attribute_byte = GRAY_ON_BLACK;
 void print_char(char character, int col, int row)
 {
 	/* prints a character at col, row or at the cursor position */
-	unsigned char * vid_mem = (unsigned char *)VGA_ADDRESS;
+	unsigned char *vid_mem = (unsigned char *)VGA_ADDRESS;
 	int offset;
 	
 	// if we want a specific position or not
@@ -79,7 +79,7 @@ void set_cursor(int offset)
 	port_byte_out(REG_SCR_DATA, (unsigned char)offset);
 }
 
-void print_at(char * str , int col , int row) 
+void print_at(char *str , int col , int row) 
 {
 	/* prints str at position */
 	int i;
@@ -134,7 +134,7 @@ int handle_scrolling(int cursor_offset)
 	}
 	
 	// blank the last line
-	char * lst_ln = (char *)(get_scr_offset(0, MAX_ROWS - 1) + VGA_ADDRESS);
+	char *lst_ln = (char *)(get_scr_offset(0, MAX_ROWS - 1) + VGA_ADDRESS);
 	for (i = 0; i < MAX_COLS; i += 2)
 		lst_ln[i] = ' ';
 		
@@ -146,7 +146,7 @@ int handle_scrolling(int cursor_offset)
 char get_char_at(int row, int col)
 {
 	/* reads a character from row, col position */
-	unsigned char * vid_mem = (unsigned char *)VGA_ADDRESS;
+	unsigned char *vid_mem = (unsigned char *)VGA_ADDRESS;
 	int offset = get_scr_offset(row, col);
 	
 	return vid_mem[offset];

@@ -20,7 +20,7 @@ void print_char(char character, int col, int row);
 int get_scr_offset(int col, int row);
 int get_cursor(void);
 void set_cursor(int offset);
-void print_at(char * str , int col , int row);
+void print_at(char *str , int col , int row);
 void clear_screen(void);
 int handle_scrolling(int cursor_offset);
 char get_char_at(int row, int col);

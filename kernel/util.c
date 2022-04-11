@@ -15,14 +15,14 @@ static unsigned int next = 1;	// used for PRN generation
 #define ENTER_KEY 28
 
 // code
-void* mem_cpy(char * src, char * dest, int num_of_bytes)
+void *mem_cpy(char *src, char *dest, int num_of_bytes)
 {	
 	int i;	
 	for (i = 0; i < num_of_bytes; ++i)
 		*(dest + i) = *(src + i);
 }
 
-int strlen(const char * str)
+int strlen(const char *str)
 {
 	int i = 0;	
 	while (str[i] != '\0')
@@ -61,7 +61,7 @@ void base_convert(int num, int base)
 	print_c(TBL[num % base]);
 }
 
-void print(char* str) 
+void print(char *str) 
 {
 	print_at(str, -1 , -1);
 }
@@ -102,7 +102,7 @@ void halt(void)
 	__asm__("hlt");
 }
 
-void append(char* s, char c) {
+void append(char *s, char c) {
         int len = strlen(s);
         s[len] = c;
         s[len+1] = '\0';
@@ -113,7 +113,7 @@ int sc = 0;
 //1MB keyboard buffer
 char key_buffer[1024*1024];
 
-char* read(void) 
+char *read(void) 
 {
 	key_buffer[0] = '\0';
 	set_input_function(get_key);
@@ -124,7 +124,7 @@ char* read(void)
 
 	append(key_buffer, '\0');
 
-	char* out;
+	char *out;
 	int buffer_length = strlen(key_buffer);
 
 	for (int i = 0; i < buffer_length; i++) {
