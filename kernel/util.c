@@ -14,9 +14,6 @@ static unsigned int next = 1;	// used for PRN generation
 
 #define ENTER_KEY 28
 
-//1MB keyboard buffer
-char* key_buffer[1024*1024];
-
 // code
 void mem_cpy(char * src, char * dest, int num_of_bytes)
 {
@@ -149,31 +146,34 @@ void append(char* s, char c) {
 }
 
 int sc = 0;
-char* input_text[1024*1024];
 
-char* str_end = "\0";
+//1MB keyboard buffer
+char key_buffer[1024*1024];
 
 char* read(void) {
 	set_input_function(get_key);
-	key_buffer[0] = str_end;
-	input_text[0] = str_end;
 	while (sc != ENTER_KEY) {
 		//Hold until enter key is pressed
 	}
 	sc = 0;
 
-	int input_length = strlen(key_buffer);
+	append(key_buffer, '\0');
 
-	for (int i = 0; i < input_length; i++) {
-		append(input_text, (char)key_buffer[i]);
+	char* out;
+	int buffer_length = strlen(key_buffer);
+
+	for (int i = 0; i < buffer_length; i++) {
+		append(out, key_buffer[i]);
 	}
 
-	return input_text;
+	return key_buffer;
 }
 
 void get_key(int scancode) {
 	sc = scancode;
-	char* key = get_key_from_code(sc);
-	append(key_buffer, sc);
-	print(key);
+	char key = get_key_from_code(sc);
+	if (key != '\0') {
+		append(key_buffer, (char)key);
+		print_c(key);
+	}
 }

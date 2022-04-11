@@ -6,13 +6,8 @@
 #include "../kernel/keyboard_map.h"
 
 void do_the_printing() {
+	print("What is your name? ");
 	char* input = read();
+	print("\nHello, ");
 	print(input);
-	print("\n1\n");
-	input = read();
-	print(input);
-	print("\n2\n");
-	input = read();
-	print(input);
-	print("\n3\n");
 }
