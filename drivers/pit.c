@@ -4,7 +4,7 @@
 #include "pit.h"
 #include "interrupts.h"
 #include "monitor_mode_txt.h"
-#include "../kernel/util.h"
+#include "../kernel/starlib.h"
 #include "../kernel/low_level_io.h"
 
 // globals

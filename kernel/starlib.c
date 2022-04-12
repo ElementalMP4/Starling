@@ -2,7 +2,7 @@
  * memory copy, sleep, etc. */
 
 // includes
-#include "util.h"
+#include "starlib.h"
 #include "stdbool.h"
 #include "keyboard_map.h"
 #include "../drivers/monitor_mode_txt.h"

@@ -4,7 +4,7 @@
 #include "interrupts.h"
 #include "pic.h"
 #include "pit.h"
-#include "../kernel/util.h"
+#include "../kernel/starlib.h"
 #include "monitor_mode_txt.h"
 #include "../kernel/low_level_io.h"
 

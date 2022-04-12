@@ -1,6 +1,6 @@
 #include <stdint.h>
 #include "main.h"
-#include "../kernel/util.h"
+#include "../kernel/starlib.h"
 #include "print_keyboard_keys.h"
 
 int run_program(void)

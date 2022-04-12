@@ -1,5 +1,5 @@
 #include "print_keyboard_keys.h"
-#include "../kernel/util.h"
+#include "../kernel/starlib.h"
 #include "../kernel/stdbool.h"
 #include "../drivers/monitor_mode_txt.h"
 

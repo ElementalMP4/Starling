@@ -1,5 +1,5 @@
 #include "kernel.h"
-#include "util.h"
+#include "starlib.h"
 #include "stdbool.h"
 #include "../drivers/monitor_mode_txt.h"
 #include "../drivers/interrupts.h"

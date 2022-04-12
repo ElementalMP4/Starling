@@ -3,7 +3,7 @@
 // includes
 #include "monitor_mode_txt.h"
 #include "../kernel/low_level_io.h"
-#include "../kernel/util.h"
+#include "../kernel/starlib.h"
 
 // globals
 char attribute_byte = GRAY_ON_BLACK;
@@ -28,7 +28,7 @@ void print_char(char character, int col, int row)
 	if ('\n' == character)
 	{
 		// move offset to end of line so it'd be advanced to the next line
-		offset = get_scr_offset(MAX_COLS - 1, offset / (2*MAX_COLS));
+		offset = get_scr_offset(MAX_COLS - 1, offset / (2 * MAX_COLS));
 	}
 	else
 	{
