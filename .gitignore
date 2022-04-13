@@ -1,2 +1,4 @@
 /images/
 *.img
+*.bin
+*.o
