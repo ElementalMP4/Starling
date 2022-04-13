@@ -173,13 +173,19 @@ void hide_cursor(void)
 	port_word_out(REG_SCR_CTRL, HIDE_CURSOR);
 }
 
+int format_input_colour(int colour) {
+	if (colour < 0) return 0;
+	else if (colour > 15) return 15;
+	else return colour;
+}
+
 void set_foreground_colour(int colour) {
-	fg_colour = colour;
+	fg_colour = format_input_colour(colour);
 	update_attribute_byte();
 }
 
 void set_background_colour(int colour) {
-	bg_colour = colour;
+	bg_colour = format_input_colour(colour);
 	update_attribute_byte();
 }
 
