@@ -1,9 +1,8 @@
-#include "print_keyboard_keys.h"
-#include "../kernel/starlib.h"
-#include "../kernel/stdbool.h"
-#include "../drivers/monitor_mode_txt.h"
+#include "../../kernel/starlib.h"
+#include "../../kernel/stdbool.h"
+#include "../../drivers/monitor_mode_txt.h"
 
-#include "../kernel/keyboard_map.h"
+#include "print_wee.h"
 
 void do_the_printing() {
 	while (true) {
@@ -12,7 +11,6 @@ void do_the_printing() {
 			for (int j = 0; j < 15; j++) {
 				set_foreground_colour(j);
 				print("WEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE\n");
-				sleep(10);
 			}
 		}
 	}

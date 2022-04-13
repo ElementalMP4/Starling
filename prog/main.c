@@ -1,7 +1,7 @@
 #include <stdint.h>
 #include "main.h"
 #include "../kernel/starlib.h"
-#include "print_keyboard_keys.h"
+# include "print_wee/print_wee.h"
 
 int run_program(void)
 {
