@@ -14,4 +14,3 @@ void srand(unsigned int seed);
 void sleep(unsigned int ms);
 void halt(void);
 char *read(void);
-void get_key(int scancode);

@@ -113,6 +113,16 @@ int sc = 0;
 //1MB keyboard buffer
 char key_buffer[1024*1024];
 
+void get_key(int scancode)
+{
+	sc = scancode;
+	char key = get_key_from_code(sc);
+	if (key != '\0') {
+		append(key_buffer, (char)key);
+		print_c(key);
+	}
+}
+
 char *read(void) 
 {
 	key_buffer[0] = '\0';
@@ -132,14 +142,4 @@ char *read(void)
 	}
 
 	return key_buffer;
-}
-
-void get_key(int scancode)
-{
-	sc = scancode;
-	char key = get_key_from_code(sc);
-	if (key != '\0') {
-		append(key_buffer, (char)key);
-		print_c(key);
-	}
 }
