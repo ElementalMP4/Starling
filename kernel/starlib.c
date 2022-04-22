@@ -111,16 +111,22 @@ void append(char *s, char c) {
 
 int sc = 0;
 
+bool shift_pressed = false;
+
 //1MB keyboard buffer
 char key_buffer[1024*1024];
 
 void get_key(int scancode)
 {
 	sc = scancode;
-	char key = get_key_from_code(sc);
-	if (key != '\0') {
-		append(key_buffer, (char)key);
-		print_c(key);
+	if (scancode == 42 | scancode == 54) shift_pressed = true;
+	else if (scancode == 170 | scancode == 182) shift_pressed = false;
+	else {
+		char key = get_key_from_code(sc, shift_pressed);
+		if (key != '\0') {
+			append(key_buffer, (char)key);
+			print_c(key);
+		}
 	}
 }
 
