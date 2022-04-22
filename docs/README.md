@@ -2,8 +2,6 @@
 
 Welcome to Starling's Developer Documentation! You must be here due to a series of bad choices. 
 
-Currently, the default program just says "WEEE" in all the supported foreground and background colours.
-
 ## Libraries
 
 Starling comes with one main library: StarLib. StarLib is the standard library for starling. It contains the following functions:
@@ -75,6 +73,9 @@ void clear_screen(void);
 
 //Hide the blinking cursor
 void hide_cursor(void);
+
+//Show the blinking cursor
+void show_cursor(void);
 ```
 
 ## Writing a program
