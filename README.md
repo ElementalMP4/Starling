@@ -18,7 +18,7 @@ To build Starling, you will need the following prerequisites:
 
 It is possible to use WSL for the linux component of this endeavour. Additionally, using an ARM-based computer *should* work, but as of yet it is not tested.
 
-Run `make -f os.make` to create the disk images.
+Run `make` to create the disk image.
 
 Assuming everything works, you can now load `Starling.img` into Qemu.
 
@@ -26,7 +26,7 @@ Assuming everything works, you can now load `Starling.img` into Qemu.
 
 I have not and probably will not test this on anything other than a virtual machine. I recommend using Qemu.
 
-To run Starling, use the following command `qemu-system-x86_64 -fda Starling.img` in the root of the project folder. 
+To run Starling, use the following command `qemu-system-x86_64 -hda Starling.img` in the root of the project folder. 
 
 ## Creating a custom program
 
