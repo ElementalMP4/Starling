@@ -140,6 +140,7 @@ void get_key(int scancode)
 
 char *read(void) 
 {
+	show_cursor();
 	key_buffer[0] = '\0';
 	set_input_function(get_key);
 	while (sc != ENTER_KEY) {
@@ -157,5 +158,6 @@ char *read(void)
 	}
 
 	set_input_function(default_input);
+	hide_cursor();
 	return key_buffer;
 }

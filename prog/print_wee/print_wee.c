@@ -6,13 +6,9 @@
 #include "print_wee.h"
 
 void do_the_printing() {
-	//print("What is your name you bastard: ");
-	//char* name = read();
-	//print("\nWow what a smelly name, ");
-	//print(name);
-	show_cursor();
-	sleep(5000);
-	hide_cursor();
-	sleep(5000);
-	show_cursor();
+	sleep(2000);
+	print("What is your name you buffoon: ");
+	char* name = read();
+	print("\nWow what a smelly name, ");
+	print(name);
 }

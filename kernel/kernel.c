@@ -20,6 +20,7 @@ void k_main()
 	kbd_initialize();			// enable keyboard
 	__asm__("sti"); 			// enable interrupts
 	clear_screen();
+	hide_cursor();
 
 	run_program();				// start the built in program
 	
