@@ -1,6 +1,10 @@
 # Starling - A barebones OS
 
-I wrote about 0.1% of this code. I took [this existing project](https://github.com/vladcc/Tetris-OS) and modified the make files and kernel to run custom programs.
+Starling is based on [this existing project](https://github.com/vladcc/Tetris-OS) which has been modified to run custom programs with cutting edge VGA text mode graphics and an entire 16 colours to work with.
+
+Starling removes all the unnecessary bloat from a traditional operating system such as Linux or Windows. Starling has no ads, no networking, no filesystem and no support for the backspace key *(yet...)*. 
+
+Starling is an opportunity to learn some C and x86 assembly. I learnt more about C whilst doing this project than I have since I first touched C in 2010.
 
 ## Building Starling
 
