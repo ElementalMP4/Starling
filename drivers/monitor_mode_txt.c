@@ -172,8 +172,11 @@ char get_attribute_byte(void)
 
 void hide_cursor(void)
 {
-	/* guess what this does */
 	port_word_out(REG_SCR_CTRL, HIDE_CURSOR);
+}
+
+void show_cursor(void) {
+	port_word_out(REG_SCR_CTRL, SHOW_CURSOR);
 }
 
 int format_input_colour(int colour) {
@@ -189,7 +192,7 @@ void set_foreground_colour(int colour) {
 
 void remove_last_character() {
 	int offset = get_cursor();
-	offset = offset - 2;
+	if (offset >= 2) offset = offset - 2;
 	unsigned char *vid_mem = (unsigned char *)VGA_ADDRESS;
 	vid_mem[offset] = '\0';
 	vid_mem[offset + 1] = attribute_byte;

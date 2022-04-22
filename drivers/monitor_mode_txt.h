@@ -14,6 +14,7 @@
 #define REG_SCR_DATA 0x3d5
 
 #define HIDE_CURSOR 0x200A
+#define SHOW_CURSOR 0x000A
 
 // functions
 void print_char(char character, int col, int row);
@@ -28,6 +29,7 @@ void set_attribute_byte(char attrib);
 char get_attribute_byte(void);
 void update_attribute_byte(void);
 void hide_cursor(void);
+void show_cursor(void);
 void remove_last_character(void);
 
 void set_foreground_colour(int colour);
