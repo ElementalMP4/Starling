@@ -1,37 +1,26 @@
 #include "keyboard_map.h"
 #include "stdbool.h"
 
-char get_key_from_code(int code, bool shiftPressed) {
+char get_key_from_map(int code, int map_size, int codes[], char values[]) {
 	char key;
 	bool found = false;
-
-	if (shiftPressed) {
-		for (int i = 0; i < SHIFT_MAP_SIZE; i++) {
-			if (code == shift_key_codes[i]) {
-				key = shift_key_values[i];
-				found = true;
-			}
+	for (int i = 0; i < map_size; i++) {
+		if (code == codes[i]) {
+			key = values[i];
+			found = true;
 		}
-
-		if (found) {
-			return key;
-		} else {
-        	return '\0';
-    	}
-	} else {
-		for (int i = 0; i < MAP_SIZE; i++) {
-			if (code == key_codes[i]) {
-				key = key_values[i];
-				found = true;
-			}
-		}
-
-		if (found) {
-			return key;
-		} else {
-        	return '\0';
-    	}
 	}
+
+	if (found) return key;
+	else return '\0';
+}
+
+char get_key_from_code(int code, bool shift_pressed) {
+	if (shift_pressed) {
+		return get_key_from_map(code, SHIFT_MAP_SIZE, shift_key_codes, shift_key_values);
+	} else {
+		return get_key_from_map(code, MAP_SIZE, key_codes, key_values);
+	} 
 }
 
 int key_codes[MAP_SIZE] = {
