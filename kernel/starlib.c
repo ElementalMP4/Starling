@@ -90,7 +90,7 @@ void sleep(unsigned int ms)
 	while (true)
 	{
 		i = get_ticks();	
-		__asm__("hlt");	// halt until next interrupt
+		halt();
 		if (i != get_ticks())
 			++j;
 		if (j >= ms)
@@ -144,7 +144,7 @@ char *read(void)
 	key_buffer[0] = '\0';
 	set_input_function(get_key);
 	while (sc != ENTER_KEY) {
-		//Hold until enter key is pressed
+		halt();
 	}
 	sc = 0;
 

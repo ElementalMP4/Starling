@@ -1,7 +1,7 @@
 #include "stdbool.h"
 
 #define MAP_SIZE 48
-#define SHIFT_MAP_SIZE 47
+#define SHIFT_MAP_SIZE 46
 
 extern const int key_codes[MAP_SIZE];
 extern const char key_values[MAP_SIZE];
