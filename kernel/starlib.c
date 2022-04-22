@@ -119,7 +119,11 @@ char key_buffer[1024*1024];
 void get_key(int scancode)
 {
 	sc = scancode;
-	if (scancode == 42 | scancode == 54) shift_pressed = true;
+
+	if (scancode == 14) {
+		remove_last_character();
+		key_buffer[strlen(key_buffer) - 1] = '\0';
+	} else if (scancode == 42 | scancode == 54) shift_pressed = true;
 	else if (scancode == 170 | scancode == 182) shift_pressed = false;
 	else {
 		char key = get_key_from_code(sc, shift_pressed);
@@ -148,5 +152,6 @@ char *read(void)
 		append(out, key_buffer[i]);
 	}
 
+	set_input_function(default_input);
 	return key_buffer;
 }

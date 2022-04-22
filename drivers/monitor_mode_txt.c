@@ -11,6 +11,9 @@ char attribute_byte = GRAY_ON_BLACK;
 int fg_colour = 7;
 int bg_colour = 0;
 
+int last_row = 0;
+int last_column = 0;
+
 // code
 void print_char(char character, int col, int row)
 {
@@ -182,6 +185,15 @@ int format_input_colour(int colour) {
 void set_foreground_colour(int colour) {
 	fg_colour = format_input_colour(colour);
 	update_attribute_byte();
+}
+
+void remove_last_character() {
+	int offset = get_cursor();
+	offset = offset - 2;
+	unsigned char *vid_mem = (unsigned char *)VGA_ADDRESS;
+	vid_mem[offset] = '\0';
+	vid_mem[offset + 1] = attribute_byte;
+	set_cursor(offset);
 }
 
 void set_background_colour(int colour) {

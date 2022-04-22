@@ -6,7 +6,7 @@
 #include "print_wee.h"
 
 void do_the_printing() {
-	print("What is your name you buffoon: ");
+	print("What is your name you bastard: ");
 	char* name = read();
 	print("\nWow what a smelly name, ");
 	print(name);

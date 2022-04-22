@@ -28,6 +28,7 @@ void set_attribute_byte(char attrib);
 char get_attribute_byte(void);
 void update_attribute_byte(void);
 void hide_cursor(void);
+void remove_last_character(void);
 
 void set_foreground_colour(int colour);
 void set_background_colour(int colour);
