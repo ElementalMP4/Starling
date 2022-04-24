@@ -1,5 +1,10 @@
 // constants
 #define RAND_MAX 32767
+#define ENTER_DOWN 28
+#define LEFT_SHIFT_DOWN 42
+#define LEFT_SHIFT_UP 170
+#define RIGHT_SHIFT_DOWN 54
+#define RIGHT_SHIFT_UP 182
 
 // functions
 void *mem_cpy(char *src, char *dest, int num_of_bytes);

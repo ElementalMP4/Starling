@@ -13,8 +13,6 @@
 const char TBL[] = "0123456789ABCDEF";
 static unsigned int next = 1;	// used for PRN generation
 
-#define ENTER_KEY 28
-
 // code
 void *mem_cpy(char *src, char *dest, int num_of_bytes)
 {	
@@ -125,9 +123,11 @@ void get_key(int scancode)
 		}
 	} 
 	//Shift Pressed
-	else if (scancode == 42 | scancode == 54) shift_pressed = true;
+	else if (scancode == LEFT_SHIFT_DOWN | scancode == RIGHT_SHIFT_DOWN)
+		shift_pressed = true;
 	//Shift Released
-	else if (scancode == 170 | scancode == 182) shift_pressed = false;
+	else if (scancode == LEFT_SHIFT_UP | scancode == RIGHT_SHIFT_UP)
+		shift_pressed = false;
 	//Add key to buffer and print
 	else {
 		char key = get_key_from_code(sc, shift_pressed);
@@ -143,7 +143,7 @@ char *read(void)
 	show_cursor();
 	key_buffer[0] = '\0';
 	set_input_function(get_key);
-	while (sc != ENTER_KEY) {
+	while (sc != ENTER_DOWN) {
 		halt();
 	}
 	sc = 0;
