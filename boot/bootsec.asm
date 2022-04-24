@@ -3,7 +3,7 @@
 [bits 16]		; force 16 bit code for real mode
 [org 0x7c00]		; set base address
 
-start:
+_start:
 	cli		; no interrupts
 	xor ax, ax	; zero out
 	mov ds, ax
