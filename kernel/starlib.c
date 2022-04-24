@@ -109,12 +109,10 @@ void append(char *s, char c) {
         s[len+1] = '\0';
 }
 
-int sc = 0;
-
-bool shift_pressed = false;
-
 //1MB keyboard buffer
 char key_buffer[1024*1024];
+int sc = 0;
+bool shift_pressed = false;
 
 void get_key(int scancode)
 {
