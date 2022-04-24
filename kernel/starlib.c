@@ -121,8 +121,10 @@ void get_key(int scancode)
 	sc = scancode;
 	//Backspace
 	if (scancode == 14) {
-		remove_last_character();
-		key_buffer[strlen(key_buffer) - 1] = '\0';
+		if (strlen(key_buffer) > 0) {
+			remove_last_character();
+			key_buffer[strlen(key_buffer) - 1] = '\0';
+		}
 	} 
 	//Shift Pressed
 	else if (scancode == 42 | scancode == 54) shift_pressed = true;
