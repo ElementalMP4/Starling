@@ -122,13 +122,11 @@ void get_key(int scancode)
 			key_buffer[strlen(key_buffer) - 1] = '\0';
 		}
 	} 
-	//Shift Pressed
+	
 	else if (scancode == LEFT_SHIFT_DOWN | scancode == RIGHT_SHIFT_DOWN)
 		shift_pressed = true;
-	//Shift Released
 	else if (scancode == LEFT_SHIFT_UP | scancode == RIGHT_SHIFT_UP)
 		shift_pressed = false;
-	//Add key to buffer and print
 	else {
 		char key = get_key_from_code(sc, shift_pressed);
 		if (key != '\0') {
