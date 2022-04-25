@@ -11,6 +11,10 @@ C_SOURCES = $(wildcard kernel/*.c drivers/*.c) $(shell find prog/ -name "*.c")
 # generate list of headers
 HEADERS = $(wildcard kernel/*.h drivers/*.h) $(shell find prog/ -name "*.h")
 
+# include path
+KERNEL = kernel/
+DRIVERS = drivers/
+
 # convert .c to .o
 OBJ = ${C_SOURCES:.c=.o}
 
@@ -25,7 +29,7 @@ kernel/kernel.bin: boot/k_entry.o ${OBJ}
 
 # all .c files to object files
 %.o : %.c ${HEADERS}
-	gcc -m32 -ffreestanding -c $< -o $@ -fno-PIE -fno-PIC
+	gcc -I ${KERNEL} -I ${DRIVERS} -m32 -ffreestanding -c $< -o $@ -fno-PIE -fno-PIC
 
 boot/k_entry.o: boot/k_entry.asm
 	nasm $< -f elf -o $@
