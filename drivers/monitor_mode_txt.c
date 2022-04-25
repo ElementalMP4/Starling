@@ -113,12 +113,11 @@ void print_at(char *str , int col , int row)
 
 void clear_screen(void)
 {
-	 int row = 0;
-	 int col = 0;
+	unsigned char *vid_mem = get_video_memory();
 	
-	for (; row < MAX_ROWS; ++row)
-		for (; col < MAX_COLS; ++col)
-			print_char(' ', col, row);
+	for (int offset = 0; offset <= MAX_COLS * MAX_ROWS; offset++) {
+		vid_mem[offset] = '\0';
+	}	
 
 	// set cursor to top left
 	set_cursor(get_scr_offset(0, 0));
