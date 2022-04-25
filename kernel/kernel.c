@@ -1,11 +1,10 @@
-#include "kernel.h"
-#include "starlib.h"
-#include "stdbool.h"
-#include "../drivers/monitor_mode_txt.h"
-#include "../drivers/interrupts.h"
-#include "../drivers/pic.h"
-#include "../drivers/pit.h"
-#include "../drivers/kbd.h"
+#include <kernel.h>
+#include <starlib.h>
+#include <monitor_mode_txt.h>
+#include <interrupts.h>
+#include <pic.h>
+#include <pit.h>
+#include <kbd.h>
 #include "../prog/main.h"
 
 static INPUT_HNDLR input_f = default_input;

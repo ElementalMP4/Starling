@@ -1,4 +1,4 @@
-#include "stdbool.h"
+#include <starlib.h>
 
 #define MAP_SIZE 48
 #define SHIFT_MAP_SIZE 46

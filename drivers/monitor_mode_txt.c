@@ -1,9 +1,9 @@
 /* the monitor driver for 80x25 text mode */
 
 // includes
-#include "monitor_mode_txt.h"
-#include "../kernel/low_level_io.h"
-#include "../kernel/starlib.h"
+#include <monitor_mode_txt.h>
+#include <low_level_io.h>
+#include <starlib.h>
 
 // globals
 char attribute_byte = GRAY_ON_BLACK;

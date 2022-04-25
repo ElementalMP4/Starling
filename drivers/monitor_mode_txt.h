@@ -1,5 +1,5 @@
 //includes
-#include "../kernel/stdbool.h"
+#include <starlib.h>
 
 // address and dimensions
 #define VGA_ADDRESS 0xb8000

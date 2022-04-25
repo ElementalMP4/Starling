@@ -3,8 +3,8 @@
 // includes
 #include <stdint.h>
 #include <stddef.h>
-#include "pic.h"
-#include "../kernel/low_level_io.h"
+#include <pic.h>
+#include <low_level_io.h>
 
 // code
 void pic_initialize(void)

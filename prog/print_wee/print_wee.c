@@ -1,7 +1,6 @@
-#include "../../kernel/starlib.h"
-#include "../../kernel/stdbool.h"
-#include "../../drivers/monitor_mode_txt.h"
-#include "../../kernel/kernel.h"
+#include <starlib.h>
+#include <kernel.h>
+#include <monitor_mode_txt.h>
 
 #include "print_wee.h"
 

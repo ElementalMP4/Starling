@@ -1,10 +1,9 @@
 // includes
-#include "starlib.h"
-#include "stdbool.h"
-#include "keyboard_map.h"
-#include "../drivers/monitor_mode_txt.h"
-#include "../drivers/pit.h"
-#include "kernel.h"
+#include <starlib.h>
+#include <keyboard_map.h>
+#include <monitor_mode_txt.h>
+#include <pit.h>
+#include <kernel.h>
 
 //Translation table for number printing
 const char TBL[] = "0123456789ABCDEF";

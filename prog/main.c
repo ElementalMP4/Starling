@@ -1,6 +1,6 @@
+#include <starlib.h>
 #include <stdint.h>
 #include "main.h"
-#include "../kernel/starlib.h"
 # include "print_wee/print_wee.h"
 
 int run_program(void)

@@ -1,10 +1,10 @@
 /* the keyboard driver */
 
 // includes
-#include "kbd.h"
-#include "interrupts.h"
-#include "../kernel/kernel.h"
-#include "../kernel/low_level_io.h"
+#include <kbd.h>
+#include <interrupts.h>
+#include <kernel.h>
+#include <low_level_io.h>
 
 // globals
 int kbd_scan_code = 0;

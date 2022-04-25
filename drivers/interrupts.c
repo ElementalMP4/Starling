@@ -1,12 +1,12 @@
 /* installs idt and deals with interrupts */
 
 // includes
-#include "interrupts.h"
-#include "pic.h"
-#include "pit.h"
-#include "../kernel/starlib.h"
-#include "monitor_mode_txt.h"
-#include "../kernel/low_level_io.h"
+#include <starlib.h>
+#include <interrupts.h>
+#include <pic.h>
+#include <pit.h>
+#include <monitor_mode_txt.h>
+#include <low_level_io.h>
 
 // globals
 static idt_desc _idt[MAX_INTERRUPTS];

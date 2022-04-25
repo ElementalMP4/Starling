@@ -1,5 +1,5 @@
-#include "keyboard_map.h"
-#include "stdbool.h"
+#include <keyboard_map.h>
+#include <starlib.h>
 
 const int key_codes[MAP_SIZE] = {
 2,3,4,5,6,7,8,9,10,11,

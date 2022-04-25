@@ -7,6 +7,10 @@
 #define RIGHT_SHIFT_UP 182
 #define BACKSPACE_DOWN 14
 
+#define bool _Bool
+#define true 1
+#define false 0
+
 // functions
 void *mem_cpy(char *src, char *dest, int num_of_bytes);
 int strlen(const char *str);
