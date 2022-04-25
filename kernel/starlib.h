@@ -5,6 +5,7 @@
 #define LEFT_SHIFT_UP 170
 #define RIGHT_SHIFT_DOWN 54
 #define RIGHT_SHIFT_UP 182
+#define BACKSPACE_DOWN 14
 
 // functions
 void *mem_cpy(char *src, char *dest, int num_of_bytes);

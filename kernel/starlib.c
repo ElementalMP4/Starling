@@ -1,6 +1,3 @@
-/* utility functions - printing, pseudo random number generator,
- * memory copy, sleep, etc. */
-
 // includes
 #include "starlib.h"
 #include "stdbool.h"
@@ -9,11 +6,11 @@
 #include "../drivers/pit.h"
 #include "kernel.h"
 
-// translation table for number printing
+//Translation table for number printing
 const char TBL[] = "0123456789ABCDEF";
-static unsigned int next = 1;	// used for PRN generation
+//Seed for the pseudorandom number generator
+static unsigned int next = 1;
 
-// code
 void *mem_cpy(char *src, char *dest, int num_of_bytes)
 {	
 	int i;	
@@ -37,7 +34,7 @@ void print_n(int num)
 
 void print_number(int num, int base)
 {
-	if (num < 0)	// handle negative numbers
+	if (num < 0)
 	{
 		print_c('-');
 		__asm__ ("neg %%eax" : "=a"(num) : "a"(num));
@@ -115,15 +112,10 @@ bool shift_pressed = false;
 void get_key(int scancode)
 {
 	sc = scancode;
-	//Backspace
-	if (scancode == 14) {
-		if (strlen(key_buffer) > 0) {
+	if (scancode == BACKSPACE_DOWN && strlen(key_buffer) > 0) {
 			remove_last_character();
 			key_buffer[strlen(key_buffer) - 1] = '\0';
-		}
-	} 
-	
-	else if (scancode == LEFT_SHIFT_DOWN | scancode == RIGHT_SHIFT_DOWN)
+	} else if (scancode == LEFT_SHIFT_DOWN | scancode == RIGHT_SHIFT_DOWN)
 		shift_pressed = true;
 	else if (scancode == LEFT_SHIFT_UP | scancode == RIGHT_SHIFT_UP)
 		shift_pressed = false;
@@ -141,20 +133,22 @@ char *read(void)
 	show_cursor();
 	key_buffer[0] = '\0';
 	set_input_function(get_key);
+	//Hold until enter is pressed
 	while (sc != ENTER_DOWN) {
 		halt();
 	}
+	//Reset scancode var and add terminator to keyboard buffer
 	sc = 0;
-
 	append(key_buffer, '\0');
 
+	//Convert keyboard buffer to char pointer
 	char *out;
 	int buffer_length = strlen(key_buffer);
-
 	for (int i = 0; i < buffer_length; i++) {
 		append(out, key_buffer[i]);
 	}
 
+	//Stop input propagation and turn off cursor
 	set_input_function(default_input);
 	hide_cursor();
 	return key_buffer;
