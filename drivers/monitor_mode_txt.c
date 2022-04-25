@@ -106,9 +106,12 @@ void print_at(char *str , int col , int row)
 void clear_screen(void)
 {
 	unsigned char *vid_mem = get_video_memory();
-	
+	bool character = true;
 	for (int offset = 0; offset <= MAX_COLS * MAX_ROWS; offset++) {
-		vid_mem[offset] = '\0';
+		if (character) {
+			vid_mem[offset] = '\0';
+			character = false;
+		} else character = true;
 	}	
 
 	// set cursor to top left

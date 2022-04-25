@@ -44,6 +44,5 @@ void set_input_function(INPUT_HNDLR proc_input)
 
 void default_input(int code)
 {
-	/* default input function does nothing */
 	return;
 }
