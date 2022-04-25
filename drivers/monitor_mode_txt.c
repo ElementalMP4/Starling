@@ -1,19 +1,11 @@
-/* the monitor driver for 80x25 text mode */
-
-// includes
 #include <monitor_mode_txt.h>
 #include <low_level_io.h>
 #include <starlib.h>
 
-// globals
 char attribute_byte = GRAY_ON_BLACK;
 
 int fg_colour = 7;
 int bg_colour = 0;
-
-int last_row = 0;
-int last_column = 0;
-
 
 unsigned char *get_video_memory() {
 	return (unsigned char *)VGA_ADDRESS;
