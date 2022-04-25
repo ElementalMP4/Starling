@@ -1,18 +1,18 @@
+# $^ - all dependencies
+# $< - the first dependency
+# $@ - the target file
+
 # generate list of asm sources
 ASM_SOURCES = $(wildcard boot/pre32_functions/*.asm boot/gdt/*.asm boot/32pm_functions/*.asm)
 
 # generate list of c sources
-C_SOURCES = $(wildcard kernel/*.c drivers/*.c prog/*.c prog/*/*.c)
+C_SOURCES = $(wildcard kernel/*.c drivers/*.c) $(shell find prog/ -name "*.c")
 
 # generate list of headers
-HEADERS = $(wildcard kernel/*.h drivers/*.h prog/*.h)
+HEADERS = $(wildcard kernel/*.h drivers/*.h) $(shell find prog/ -name "*.h")
 
 # convert .c to .o
 OBJ = ${C_SOURCES:.c=.o}
-
-# $^ - all dependencies
-# $< - the first dependency
-# $@ - the target file
 
 # making the disk image
 images/os.img: boot/bootsec.bin kernel/kernel.bin
