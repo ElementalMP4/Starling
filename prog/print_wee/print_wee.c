@@ -36,5 +36,6 @@ void do_the_printing() {
 	print("\nWow what a smelly name, ");
 	print(name);
 	sleep(2000);
+	clear_screen();
 	print_wee();
 }

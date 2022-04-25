@@ -14,14 +14,17 @@ int bg_colour = 0;
 int last_row = 0;
 int last_column = 0;
 
-// code
+
+unsigned char *get_video_memory() {
+	return (unsigned char *)VGA_ADDRESS;
+}
+
 void print_char(char character, int col, int row)
 {
-	/* prints a character at col, row or at the cursor position */
-	unsigned char *vid_mem = (unsigned char *)VGA_ADDRESS;
+	unsigned char *vid_mem = get_video_memory();
 	int offset;
 	
-	// if we want a specific position or not
+	//Get offset if a position is specified, otherwise get current cursor
 	if (col >= 0 && row >= 0)	
 		offset = get_scr_offset(col, row);
 	else
@@ -110,7 +113,6 @@ void print_at(char *str , int col , int row)
 
 void clear_screen(void)
 {
-	/* clears the screen by writing spaces */
 	 int row = 0;
 	 int col = 0;
 	
@@ -124,8 +126,6 @@ void clear_screen(void)
 
 int handle_scrolling(int cursor_offset)
 {
-	/* scrolls the screen */
-	
 	// return if no need for scrolling
 	if (cursor_offset < MAX_ROWS * MAX_COLS * 2)
 		return cursor_offset;
@@ -152,7 +152,7 @@ int handle_scrolling(int cursor_offset)
 char get_char_at(int row, int col)
 {
 	/* reads a character from row, col position */
-	unsigned char *vid_mem = (unsigned char *)VGA_ADDRESS;
+	unsigned char *vid_mem = get_video_memory();
 	int offset = get_scr_offset(row, col);
 	
 	return vid_mem[offset];
@@ -192,8 +192,8 @@ void set_foreground_colour(int colour) {
 
 void remove_last_character() {
 	int offset = get_cursor();
+	unsigned char *vid_mem = get_video_memory();
 	if (offset >= 2) offset = offset - 2;
-	unsigned char *vid_mem = (unsigned char *)VGA_ADDRESS;
 	vid_mem[offset] = '\0';
 	vid_mem[offset + 1] = attribute_byte;
 	set_cursor(offset);
