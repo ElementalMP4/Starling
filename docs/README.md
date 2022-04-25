@@ -98,3 +98,5 @@ int run_program(void)
 This example program simply prints "Hello World!" and then does nothing. 
 
 You can create other files and subfolders in the `prog` directory and they will be automatically detected and compiled for you.
+
+**NOTE:** The makefile will **only** work on Linux. If you are using Windows, I recommend using WSL with VSCode to build and then Qemu on Windows to test.

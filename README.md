@@ -14,11 +14,11 @@ To build Starling, you will need the following prerequisites:
 - GCC
 - NASM
 - Qemu
-- A flavour of Linux
-
-It is possible to use WSL for the linux component of this endeavour. Additionally, using an ARM-based computer *should* work, but as of yet it is not tested.
+- A flavour of Linux or WSL
 
 Run `make` to create the disk image.
+
+**NOTE:** The makefile will **only** work on Linux. If you are using Windows, I recommend using WSL with VSCode to build and then Qemu on Windows to test.
 
 Assuming everything works, you can now load `Starling.img` into Qemu.
 
