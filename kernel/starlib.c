@@ -156,3 +156,9 @@ char *read(void)
 	hide_cursor();
 	return key_buffer;
 }
+
+void jack() {
+	while (true) {
+		halt();
+	}
+}

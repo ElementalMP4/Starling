@@ -25,3 +25,5 @@ int rand_range(int lower, int upper);
 void sleep(unsigned int ms);
 void halt(void);
 char *read(void);
+
+void jack(void);
