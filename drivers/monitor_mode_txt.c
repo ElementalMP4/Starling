@@ -106,7 +106,7 @@ void clear_screen(void)
 {
 	unsigned char *vid_mem = get_video_memory();
 	bool character = true;
-	for (int offset = 0; offset <= MAX_COLS * MAX_ROWS; offset++) {
+	for (int offset = 0; offset <= (MAX_COLS * MAX_ROWS) * 2; offset++) {
 		if (character) {
 			vid_mem[offset] = '\0';
 			character = false;

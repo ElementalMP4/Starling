@@ -9,6 +9,7 @@ bool loop_game = true;
 int score = 0;
 
 void show_title() {
+    set_foreground_colour(11);
     print_at("Dice Game!", 35, 0);
 }
 
@@ -18,6 +19,7 @@ void game() {
         int dice_two = rand_range(1, 6);
         srand(get_ticks());
 
+        set_foreground_colour(14);
         print("You rolled a ");
         print_n(dice_one);
         print(" and a ");
@@ -25,10 +27,12 @@ void game() {
         print("\n");
 
         if (dice_one == dice_two) {
+            set_foreground_colour(4);
             print("Both your dice were the same! You lose!\n");
             loop_game = false;
         } else {
             score = score + dice_one + dice_two;
+            set_foreground_colour(10);
             print("You rolled different dice! Your score is now ");
             print_n(score);
             print("\n");

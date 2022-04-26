@@ -6,7 +6,9 @@ Welcome to Starling's Developer Documentation! You must be here due to a series 
 
 Starling comes with one main library: StarLib. StarLib is the standard library for starling. It contains the following functions:
 
-Starlib can be accessed via `../kernel/starlib.h`
+Starlib can be accessed via `<starlib.h>` which is on the include path by default.
+
+All drivers are also accessible via angled brackets.
 
 ```C
 //Copy some data of known size from one memory address to another
@@ -48,7 +50,7 @@ char *read(void);
 
 As well as StarLib, Starling also has some other important libraries which interface with the kernel. For example:
 
-`../kernel/kernel.h`
+`<kernel.h>`
 
 ```C
 //Define a function to handle keyboard input.
@@ -56,7 +58,7 @@ As well as StarLib, Starling also has some other important libraries which inter
 void set_input_function(void proc_input);
 ```
 
-`../drivers/monitor_mode_txt.h`
+`<monitor_mode_txt.h>`
 
 ```C
 //Set the text foreground colour (0-15);
@@ -78,6 +80,25 @@ void hide_cursor(void);
 void show_cursor(void);
 ```
 
+It is also worth noting the colours used by `set_foreground_colour` and `set_background_colour`. They range from 0-15 and are as follows:
+
+0 - Black
+1 - Dark Blue
+2 - Dark Green
+3 - Dark Cyan
+4 - Dark Red
+5 - Purple
+6 - Brown/Orange
+7 - Light Grey
+8 - Dark Grey
+9 - Light Blue
+10 - Light Green
+11 - Light Cyan
+12 - Light Red
+13 - Magenta
+14 - Yellow
+15 - White
+
 ## Writing a program
 
 Your program will be written in C and it will be located in the `prog` folder.
@@ -88,7 +109,7 @@ Here's an example program:
 
 ```C
 #include "main.h"
-#include "../kernel/starlib.h"
+#include <starlib.h>
 
 int run_program(void)
 {
