@@ -46,7 +46,8 @@ void game() {
     }
 }
 
-void play_game() {
+void run_game() {
+    sleep(10);
     while(true) {
         clear_screen();
         show_title();
@@ -58,9 +59,4 @@ void play_game() {
         print_n(score);
         sleep(1000);
     }
-}
-
-void run_game() {
-    sleep(10);
-    play_game();
 }
