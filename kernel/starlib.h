@@ -26,4 +26,5 @@ void sleep(unsigned int ms);
 void halt(void);
 char *read(void);
 
+//Jack.
 void jack(void);

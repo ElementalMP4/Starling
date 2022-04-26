@@ -157,6 +157,8 @@ char *read(void)
 	return key_buffer;
 }
 
+
+//Jack.
 void jack() {
 	while (true) {
 		halt();
