@@ -77,6 +77,10 @@ void srand(unsigned int seed)
 	next = seed;
 }
 
+int rand_range(int lower, int upper) {
+	return (rand() % (upper - lower + 1)) + lower;
+}
+
 void sleep(unsigned int ms)
 {
 	int i, j;

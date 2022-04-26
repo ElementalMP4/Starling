@@ -21,6 +21,7 @@ void print(char *str);
 void print_c(char ch);
 int rand(void);
 void srand(unsigned int seed);
+int rand_range(int lower, int upper);
 void sleep(unsigned int ms);
 void halt(void);
 char *read(void);

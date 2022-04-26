@@ -8,7 +8,7 @@ void print_wee() {
 	while (true) {
 		for (int i = 0; i <= 15; i++) {
 			set_foreground_colour(i);
-			print_n(rand());
+			print_n(rand_range(0, 10));
 			print("\n");
 			sleep(10);
 		}

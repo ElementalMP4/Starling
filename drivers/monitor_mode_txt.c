@@ -100,7 +100,6 @@ void print_at(char *str , int col , int row)
 	else
 		for (i = 0; str[i] != '\0'; ++i, ++col)
 			print_char(str[i], col, row);
-
 }
 
 void clear_screen(void)
