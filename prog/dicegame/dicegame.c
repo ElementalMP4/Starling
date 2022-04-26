@@ -29,6 +29,7 @@ void game() {
         if (dice_one == dice_two) {
             set_foreground_colour(4);
             print("Both your dice were the same! You lose!\n");
+            read();
             loop_game = false;
         } else {
             score = score + dice_one + dice_two;
@@ -37,8 +38,9 @@ void game() {
             print_n(score);
             print("\n");
             print("Keep playing? (Y/N): ");
+            set_foreground_colour(15);
             char *choice = read();
-            if (choice[0] != 'Y') loop_game = false;
+            if (choice[0] != 'Y' && choice[0] != 'y') loop_game = false;
             print("\n");
         }
     }
