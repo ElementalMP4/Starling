@@ -6,6 +6,6 @@
 
 int run_program(void)
 {
-	print("Hello World!\n");
-	run_game();
+	print("\fC\b6Hello World!\n");
+	//run_game();
 }

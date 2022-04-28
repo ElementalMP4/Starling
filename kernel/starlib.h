@@ -25,6 +25,7 @@ int rand_range(int lower, int upper);
 void sleep(unsigned int ms);
 void halt(void);
 char *read(void);
+int hex_to_int(char hex);
 
 //Jack.
 void jack(void);

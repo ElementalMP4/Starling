@@ -99,6 +99,14 @@ It is also worth noting the colours used by `set_foreground_colour` and `set_bac
 14 - Yellow
 15 - White
 
+As well as the functions to set colours, starling supports three escape characters:
+
+`\n` - Drop to a new line
+`\f` - Set the foreground colour
+`\b` - Set the background colour
+
+`\f` and `\b` should be followed by a character that is in hexadecimal to represent the colour (see the list above)
+
 ## Writing a program
 
 Your program will be written in C and it will be located in the `prog` folder.

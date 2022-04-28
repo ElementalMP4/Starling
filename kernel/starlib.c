@@ -157,6 +157,14 @@ char *read(void)
 	return key_buffer;
 }
 
+int hex_to_int(char hex) {
+	int val = 0;
+	for (int i = 0; i < 16; i++) {
+		if (TBL[i] == hex) val = i;
+	}
+	return val;
+}
+
 
 //Jack.
 void jack() {

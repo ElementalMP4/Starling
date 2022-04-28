@@ -7,6 +7,9 @@ char attribute_byte = GRAY_ON_BLACK;
 int fg_colour = 7;
 int bg_colour = 0;
 
+bool expecting_colour = false;
+char colour_expected = '\0';
+
 unsigned char *get_video_memory() {
 	return (unsigned char *)VGA_ADDRESS;
 }
@@ -21,27 +24,38 @@ void print_char(char character, int col, int row)
 		offset = get_scr_offset(col, row);
 	else
 		offset = get_cursor();
-	
-	// use only line feed as a new line character	
-	if ('\n' == character)
-	{
-		// move offset to end of line so it'd be advanced to the next line
-		offset = get_scr_offset(MAX_COLS - 1, offset / (2 * MAX_COLS));
+
+	if (expecting_colour) {
+		if (colour_expected == 'f')
+			set_foreground_colour(hex_to_int(character));
+		else 
+			set_background_colour(hex_to_int(character));
+		expecting_colour = false;
+		return;
 	}
-	else
-	{
-		// or write character
+
+	if (character == '\f') {
+		expecting_colour = true;
+		colour_expected = 'f';
+		return;
+	}
+
+	if (character == '\b') {
+		expecting_colour = true;
+		colour_expected = 'b';
+		return;
+	}
+
+	if (character == '\n') {
+		offset = get_scr_offset(MAX_COLS - 1, offset / (2 * MAX_COLS));
+	} else {
 		vid_mem[offset] = character;
 		vid_mem[offset + 1] = attribute_byte;
 	}
 	
 	// go to next character cell
 	offset += 2;
-	
-	// make scrolling adjustments
 	offset = handle_scrolling(offset);
-	
-	// update cursor position on the screen
 	set_cursor(offset);
 }
 
