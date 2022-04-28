@@ -1,11 +1,10 @@
 /* installs idt and deals with interrupts */
 
 // includes
-#include <starlib.h>
 #include <interrupts.h>
 #include <pic.h>
 #include <pit.h>
-#include <monitor_mode_txt.h>
+#include <display.h>
 #include <low_level_io.h>
 
 // globals

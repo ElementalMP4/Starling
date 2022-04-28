@@ -3,8 +3,6 @@
 // includes
 #include <pit.h>
 #include <interrupts.h>
-#include <monitor_mode_txt.h>
-#include <starlib.h>
 #include <low_level_io.h>
 
 // globals

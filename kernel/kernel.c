@@ -1,6 +1,6 @@
 #include <kernel.h>
 #include <starlib.h>
-#include <monitor_mode_txt.h>
+#include <display.h>
 #include <interrupts.h>
 #include <pic.h>
 #include <pit.h>

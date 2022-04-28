@@ -1,7 +1,7 @@
 // includes
 #include <starlib.h>
 #include <keyboard_map.h>
-#include <monitor_mode_txt.h>
+#include <display.h>
 #include <pit.h>
 #include <kernel.h>
 

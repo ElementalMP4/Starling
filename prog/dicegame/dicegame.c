@@ -1,6 +1,6 @@
 #include <starlib.h>
 #include <kernel.h>
-#include <monitor_mode_txt.h>
+#include <display.h>
 #include <pit.h>
 
 #include "dicegame.h"

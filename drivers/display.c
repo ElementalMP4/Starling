@@ -1,4 +1,4 @@
-#include <monitor_mode_txt.h>
+#include <display.h>
 #include <low_level_io.h>
 #include <starlib.h>
 
