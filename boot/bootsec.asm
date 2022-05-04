@@ -1,10 +1,5 @@
-; boot sector for OS
-
-[bits 16]		; force 16 bit code for real mode
 [org 0x7c00]		; set base address
-
-global _start
-
+[bits 16]		; force 16 bit code for real mode
 _start:
 	cli		; no interrupts
 	xor ax, ax	; zero out
@@ -13,23 +8,15 @@ _start:
 	mov ss, ax
 	mov sp, STACK	; set stack address
 	mov sp, bp
-	jmp 0:main	; far jump for cs
-	
-main:
 	sti			; set interrupts
-
 	mov [BOOT_DRV], dl	; remember the boot device
-
 	call clear_screen	; clear the screen
-
 	mov ax, RM_MSG		; print real mode message
 	call print_cstring
-
 	call load_kernel	; actually load the system
-
 	call pm_switch		; switch to protected mode
-
 	hlt			; halt - shouldn't execute
+
 
 ; constants
 KERNEL_OFFSET equ 0x1000
