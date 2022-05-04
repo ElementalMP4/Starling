@@ -15,7 +15,7 @@ void print_white_screen() {
 void change_random_byte() {
 	int column = rand_range(0, MAX_COLS - 1);
 	int row = rand_range(0, MAX_ROWS - 1);
-	int colour = rand_range(0, 15);
+	int colour = rand_range(0, 14);
 	char byte = create_attribute_byte(0, colour);
 	set_attribute_byte_at(byte, row, column);
 }
@@ -25,5 +25,6 @@ int run_program(void)
 	print_white_screen();
 	while(true) {
 		change_random_byte();
+		sleep(5);
 	}
 }
