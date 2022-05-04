@@ -33,3 +33,5 @@ void show_cursor(void);
 void remove_last_character(void);
 void set_foreground_colour(int colour);
 void set_background_colour(int colour);
+char create_attribute_byte(int fg_c, int bg_c);
+void set_attribute_byte_at(char attribute_byte, int row, int col);

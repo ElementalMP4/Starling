@@ -214,3 +214,13 @@ void set_background_colour(int colour) {
 void update_attribute_byte() {
 	set_attribute_byte(fg_colour | bg_colour << 4);
 }
+
+char create_attribute_byte(int fg_c, int bg_c) {
+	return fg_c | bg_c << 4;
+}
+
+void set_attribute_byte_at(char attribute_byte, int row, int col) {
+	int offset = get_scr_offset(col, row);
+	unsigned char *vid_mem = get_video_memory();
+	vid_mem[offset + 1] = attribute_byte;
+}
