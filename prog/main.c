@@ -54,5 +54,6 @@ int run_program(void)
 		reset_filled_list();
 		if (colour < 15) colour++;
 		else colour = 0;
+		sleep(100);
 	}
 }

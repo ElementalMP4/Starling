@@ -37,3 +37,6 @@ boot/k_entry.o: boot/k_entry.asm
 # make the boot sector
 boot/bootsec.bin: boot/bootsec.asm $(ASM_SOURCES)
 	nasm $< -f bin -I 'boot/' -o $@
+
+clean:
+	sudo rm -r kernel/ boot/ images/ docs/ drivers/ prog/ -f
