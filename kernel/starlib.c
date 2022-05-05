@@ -66,6 +66,13 @@ void print_c(char ch)
 	print_char(ch, -1, -1);
 }
 
+void slow_print(char *str, int delay) {
+	for (int i = 0; i < strlen(str); i++) {
+		print_c(str[i]);
+		sleep(delay);
+	}
+}
+
 int rand(void)
 {
 	next = next * 1103515245 + 12345;

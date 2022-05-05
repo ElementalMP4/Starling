@@ -45,6 +45,11 @@ void change_random_byte() {
 
 int run_program(void)
 {
+	slow_print("\fFWelcome to \fBStarling!\n", 5);
+	sleep(750);
+	slow_print("\fFEnjoy this demo!", 5);
+	sleep(750);
+	clear_screen();
 	print_white_screen();
 	while(true) {
 		for (int k = 0; k < MAX_COLS * MAX_ROWS; k++) {

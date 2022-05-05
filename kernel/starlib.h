@@ -19,6 +19,7 @@ void print_number(int num, int base);
 void print_n(int num);
 void print(char *str);
 void print_c(char ch);
+void slow_print(char *str, int delay);
 int rand(void);
 void srand(unsigned int seed);
 int rand_range(int lower, int upper);
