@@ -32,11 +32,17 @@ void print(char *str);
 //Print a character
 void print_c(char ch);
 
+//Print a string slowly with a chosen delay between each character
+void slow_print(char *str, int delay);
+
 //Generate a random number
 int rand(void);
 
 //Seed the number generator
 void srand(unsigned int seed);
+
+//Generate a random number within a range
+int rand_range(int lower, int upper);
 
 //Sleep for a number of milliseconds
 void sleep(unsigned int ms);
